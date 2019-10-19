@@ -1,9 +1,9 @@
 import java.util.Arrays;
+
+import sun.security.krb5.internal.KDCOptions;
 public class canBalance {
 
-
-
-public boolean testBalance (int values[])
+public void testBalance (int values[])
 {
 
 int[] val1 = new int[values.length-1];
@@ -26,19 +26,34 @@ for (int i= 1; i <= (length-2); i ++){
 
 int temp2 = values[values.length-1];
 
-val2[values.length-1] = temp2;
+val2[values.length-2] = temp2;
 
-for (int j =values.length-2 ; j >=(length-2); j--){
+for (int j =values.length-3 ; j >=0; j--){
 
-    temp2 = temp2 + values[j];
+    
+    temp2 = temp2 + values[j+1];
 
     val2[j] = temp2;
 
 }
-System.out.println(Arrays.toString(val1));
-System.out.println(Arrays.toString(val2));
 
-    return true;
+for(int k = 0; k <= values.length-2; k ++ ) {
+
+
+    if (val1[k] == val2[k]) {
+
+        System.out.println("TRUE");
+
+        break;
+
+    }
+
+}
+
+ 
+//System.out.println(Arrays.toString(val1));
+//System.out.println(Arrays.toString(val2));
+
 }
 
 }
